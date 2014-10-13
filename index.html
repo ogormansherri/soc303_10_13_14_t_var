@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<title>Chapter 9 Two-Sample t Tests</title>
+	<meta name="description" content="Chapter 9 Two-Sample t Tests">
+	<meta name="author" content="Sherri Verdugo, M.S.">
+	<meta name="generator" content="slidify" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/core/deck.core.css">
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/goto/deck.goto.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/hash/deck.hash.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/menu/deck.menu.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/navigation/deck.navigation.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/scale/deck.scale.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/status/deck.status.css">
+<!-- Style theme. More available in /themes/style/  -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/themes/style/swiss.css">
+	
+	<!-- Transition theme. More available in /themes/transition/  -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/themes/transition/horizontal-slide.css">
+	<script src="libraries/frameworks/deckjs/modernizr.custom.js"></script>
+	
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/highlighters/deck.js/css/solarized_light.css">
+	
+	  <link rel="stylesheet" href = "libraries/widgets/quiz/css/demo.css">
+<link rel="stylesheet" href = "libraries/widgets/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+
+<body class="deck-container">
+
+  <!-- Begin slides -->
+  <section class="slide " id="slide-1">
+  <h2>Topics for this Week</h2>
+  <ol>
+<li>Recap</li>
+<li>Homework 2 is due</li>
+<li>Chapter 9 Part I Monday</li>
+<li>Examples of z scores are on the class website</li>
+<li>Feedback will be on the class portal for each assignment</li>
+<li>Winners will be announced on Wednesday</li>
+<li>Wed. we will be doing a mock research project from start to finish</li>
+<li>Chapter 10</li>
+</ol>
+
+</section>
+<section class="slide class" id="topics">
+  <h2>Chapter 9 Two-Sample t-Tests</h2>
+  <h3>Prologue and Introduction</h3>
+
+<p>We are studying a family of tests in statistics named, the t-tests. This time, we can look at introducing more than one group of individuals to study. We are learning how to look at groups statistically. This chapter builds from chapters 6, 7, and 8.</p>
+
+<p>Remember when I mentioned that we should be able to remember what equation we need to use for the data that we have. The equation we use is always decided by the data!</p>
+
+</section>
+<section class="slide class" id="prologue">
+  <h2>Outline</h2>
+  <ol>
+<li>Independent Samples Versus Dependent Samples</li>
+<li>The Two-Sample t Test (INDEPENDENT DRAWN SAMPLES)</li>
+<li>Adjustments for Sigma-Hat Squared \(\hat{\sigma}^2\)</li>
+<li>Interpreting a Computer-Generated t Test</li>
+<li>Computer Applications: Independent Samples t Tests</li>
+<li>The Two-Sample t Test for Dependent Samples</li>
+<li>Computer Applications: Dependent Samples t Tests</li>
+<li>Statistical Significance versus Research Significance</li>
+<li>Statistical Power</li>
+<li>Conclusions</li>
+</ol>
+
+</section>
+<section class="slide class" id="outline">
+  <h2>Independent Samples Versus Dependent Samples</h2>
+  <ul>
+<li><p>Independent Samples (Independent Drawn Samples) [PAGE 273]</p>
+
+<ul>
+<li>The composition of one sample is in no way matched or paired to the composition of the other sample. Thus, the two samples reflect two <em>SEPARATE POPULATIONS</em></li>
+</ul></li>
+<li><p>Dependent Samples: Matched Pairs [PAGE 275]</p>
+
+<ul>
+<li>Situation in which members of one sample are not selected independently, but are instead determined by the makeup of the other sample. (they reflect the other group but are NOT THE SAME GROUP.)</li>
+</ul></li>
+<li><p>Dependent Samples: Matched Pairs (paired difference) t test [PAGE 275]</p>
+
+<ul>
+<li>The t test used when the two samples are dependent samples.</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="id1">
+  <h3>INDEPENDENT SAMPLES t-Test</h3>
+  <ul>
+<li>The first introductory t-Test from previous chapters assumes <em>INDEPENDENT SAMPLES</em></li>
+<li>CHARACTERISTICS 
+
+<ul>
+<li>Two separate groups that are NOT matched or paired on any criteria</li>
+<li>Two Samples REFLECT two DIFFERENT POPULATIONS</li>
+<li>Group 1 and 2 has it&#39;s own: 
+
+<ul>
+<li>sample size \(n\)</li>
+<li>mean \(\bar{x}\) </li>
+<li>variance \(\sigma^2\) or \(s^2\) (for now we are using \(s^2\) versus \(\sigma^2\))</li>
+<li>standard deviation (the \(\sqrt{variance}\))</li>
+</ul></li>
+<li>Hypotheses
+
+<ul>
+<li>NON-DIRECTIONAL: \(H_0: \mu_1 = \mu_2\) and \(H_1:\mu_1 \neq \mu_2\)</li>
+<li>DIRECTIONAL (IF PRIOR KNOWLEDGE INDICATES THIS): 
+
+<ul>
+<li>\(H_0: \mu_1 > \mu_2\) and \(H_1:\mu_1 < \mu_2\)</li>
+<li>\(H_0: \mu_1 < \mu_2\) and \(H_1:\mu_1 > \mu_2\)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="id2">
+  <h3>Relationship between Independent Samples and Population</h3>
+  <table><thead>
+<tr>
+<th>SAMPLE 1</th>
+<th>SAMPLE 2</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Size \(n_1\)</td>
+<td>Size \(n_2\)</td>
+</tr>
+<tr>
+<td>Mean \(\mu_1\)</td>
+<td>Mean \(\mu_2\)</td>
+</tr>
+<tr>
+<td>Variance \(s_1^2\)</td>
+<td>Variance \(s_2^2\)</td>
+</tr>
+<tr>
+<td>\(\bigg\uparrow\)</td>
+<td>$   \bigg\uparrow$</td>
+</tr>
+<tr>
+<td>POP1</td>
+<td>POP 2</td>
+</tr>
+<tr>
+<td>\(\mu_1\)  unknown</td>
+<td>\(\mu_2\) unknown</td>
+</tr>
+<tr>
+<td>\(\sigma_1^2\) unknown</td>
+<td>\(\sigma_2^2\) unknown</td>
+</tr>
+</tbody></table>
+
+</section>
+<section class="slide class" id="id2">
+  <h3>Examples of Independent Samples and Populations</h3>
+  <p><strong>THESE ARE NOT MATCHED AT ALL!!!!</strong></p>
+
+<ul>
+<li>Participants randomly selected to receive a placebo and medication
+
+<ul>
+<li>Group 1 = Placebo</li>
+<li>Group 2 = Medication</li>
+</ul></li>
+</ul>
+
+<table><thead>
+<tr>
+<th>PLACEBO</th>
+<th>MEDICATION</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Size \(n_1=6\)</td>
+<td>Size \(n_2=5\)</td>
+</tr>
+<tr>
+<td>Mean \(\bar{x_1}\)</td>
+<td>Mean \(\bar{x_2}\)</td>
+</tr>
+<tr>
+<td>Variance \(s_1^2\)</td>
+<td>Variance \(s_2^2\)</td>
+</tr>
+<tr>
+<td>\(\bigg\uparrow\)</td>
+<td>\(\bigg\uparrow\)</td>
+</tr>
+<tr>
+<td>POPULATION 1</td>
+<td>POPULATION 2</td>
+</tr>
+<tr>
+<td>\(\mu_1\) is unknown</td>
+<td>\(\mu_2\) is unknown</td>
+</tr>
+<tr>
+<td>\(\sigma_1^2\) is unknown</td>
+<td>\(\sigma_2^2\) is unknown</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>Participants randomly selected to receive a training and non-training
+
+<ul>
+<li>Group 1 = Training</li>
+<li>Group 2 = Non-Training</li>
+</ul></li>
+<li>Participants randomly selected to view advertising and not view advertising
+
+<ul>
+<li>Group 1 = Advertising</li>
+<li>Group 2 = Non-Advertising</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="id3">
+  <h2>The Two-Sample t Test (INDEPENDENT DRAWN SAMPLES)</h2>
+  <ul>
+<li>Pooled Estimate of Common Variance [PAGE 276]
+
+<ul>
+<li>Estimate based on a weighted average of two sample variances being used to estimate the population variance in finding the standard error.</li>
+</ul></li>
+<li>F test for Homogeneity of Variance [PAGE 276]
+
+<ul>
+<li>A test, based on the sample variances, used to determine the most appropriate \(t\) test formula to use.</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="2sampIND">
+  <h3>Steps for Two-Sample t Test (INDEPENDENT DRAWN SAMPLES)</h3>
+  <ol>
+<li>Write out Hypotheses for the original problem (comparison of the two sample means)
+
+<ul>
+<li>The Null \(H_0\) </li>
+<li>The Alternative \(H_1\)</li>
+</ul></li>
+<li>For EACH SAMPLE
+
+<ul>
+<li>\(n_1\) (sample size) and \(n_2\) (sample size)</li>
+<li>\(\bar{x_1}\) (mean) and \(\bar{x_2}\) (mean)</li>
+<li>\(s_1^2\) (sample variance) and \(s_2^2\) (sample variance)</li>
+</ul></li>
+<li>HOW TO DETERMINE WHICH t formula to use
+
+<ul>
+<li>for EQUAL OR UNEQUAL VARIANCES use the F test for Homogeneity of Variances
+
+<ul>
+<li>Write out the \(H_0\) and \(H_1\) for the F Test</li>
+<li>Calculate F and it&#39;s two degrees of freedom</li>
+<li>Compare the obtained F to \(F_{critical}\), .05 level (from the F table pp. 566-568)</li>
+<li>Decisions for F
+
+<ul>
+<li>If \(F_{obtained} \geq F_{critical}\) ASSUME UNEQUAL POPULATION VARIANCES</li>
+<li>If \(F_{obtained} \leq F_{critical}\) ASSUME EQUAL POPULATION VARIANCES</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Perform the appropriate \(t\) test as determined by the \(F\) test</li>
+</ol>
+
+</section>
+<section class="slide class" id="2sampINDsteps">
+  <h3>t-test Solving Example 1 Page 277: EQUAL VARIANCES</h3>
+  <ul>
+<li>Scenario: T.V. Commercial.</li>
+<li>A group of 6 people are assigned to the experimental group and will see a commercial. Those 6 people in the experimental group will then evaluate the product&#39;s favor ability. Next, 5 people will be assigned to the control group and then evaluate the product&#39;s favor ability without seeing the commercial. In addition, the marketing department has indicated that the commercial has been rated as favorable in the past.</li>
+</ul>
+
+<p>STEP ONE: Write out \(H_0\) and \(H_1\)
+    * WE USE DIRECTIONAL BECAUSE OF PREVIOUS INFORMATION FROM THE MARKETING DEPARTMENT.
+    * Experimental group saw the commercial
+    * Control group did not see the commercial
+    * \(H_0: \mu_{experimental} = \mu_{control}\)
+    * \(H_1: \mu_{experimental} > \mu_{control}\)</p>
+
+</section>
+<section class="slide class" id="sampINDEX1">
+  <h3>t-test Solving Example 1 Page 277</h3>
+  <p>STEP TWO: Determine \(n\), \(\bar{x}\), and \(s^2\) for each group</p>
+
+<table><thead>
+<tr>
+<th>Experimental Group</th>
+<th>Control Group</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>\(x_{experimental}\)</td>
+<td>\(x_{control}\)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>6</td>
+<td>8</td>
+</tr>
+<tr>
+<td>8</td>
+<td>3</td>
+</tr>
+<tr>
+<td>7</td>
+<td>5</td>
+</tr>
+<tr>
+<td>9</td>
+<td>6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>\(n_{experimental}=6\) and \(n_{control}=5\)</li>
+<li>\(\bar{x}_{experimental}=47\) and \(\bar{x}_{control}=29\)</li>
+<li>Means for our groups
+
+<ul>
+<li>\(\bar{x}_{experimental}=\frac{\Sigma x_{experimental}}{n_{experimental}}=\frac{47}{6}=7.83\)</li>
+<li>\(\bar{x}_{control}=\frac{\Sigma x_{control}}{n_{control}}=\frac{29}{5}=5.80\)</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="sampINDEX2">
+  <h3>t-test Solving Example 1 Page 277</h3>
+  <p>STEP THREE: Calculate the Variance (from scratch, these may or may not be provided to you in an exam or homework...know this skill even if you don&#39;t need it for a particular problem.) 
+    * Square the raw scores</p>
+
+<table><thead>
+<tr>
+<th>Experimental Group</th>
+<th>Control Group</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>\(x_{experimental}\)</td>
+<td>\(x_{control}\)</td>
+</tr>
+<tr>
+<td>100</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>36</td>
+<td>64</td>
+</tr>
+<tr>
+<td>64</td>
+<td>9</td>
+</tr>
+<tr>
+<td>49</td>
+<td>25</td>
+</tr>
+<tr>
+<td>81</td>
+<td>36</td>
+</tr>
+<tr>
+<td>49</td>
+<td>49</td>
+</tr>
+</tbody></table>
+
+<pre><code>* For Experimental Variance
+</code></pre>
+
+<p>\(\Sigma x_1^2 = 379\)</p>
+
+<p>\(s_1^2 = \frac{\Sigma x_1^2 - \frac{(\Sigma x_1)^2}{n_1}}{n_1}\) =\(s_1^2 = \frac{379 - \frac{(47)^2}{6}}{6}\) = \(s_1^2 = \frac{379 - \frac{2206}{6}}{6}\) =\(s_1^2 = \frac{379 - 368.17}{6}\) =\(s_1^2 = 1.81\)</p>
+
+<pre><code>* For Control Variance
+</code></pre>
+
+<p>\(\Sigma x_2^2= 183\) </p>
+
+<p>\(s_2^2 = \frac{\Sigma x_2^2 - \frac{(\Sigma x_2)^2}{n_2}}{n_2}\) =\(s_2^2 = \frac{183 - \frac{(29)^2}{5}}{5}\) = \(s_2^2 = \frac{183 - \frac{841}{5}}{5}\) =\(s_2^2 = \frac{183 - 168.2}{5}\) = \(s_2^2 = 2.96\)</p>
+
+</section>
+<section class="slide class" id="sampINDEX3">
+  <h3>Summarizing the results So Far</h3>
+  <table><thead>
+<tr>
+<th>Experimental</th>
+<th>Control</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>\(n_1=6\)</td>
+<td>\(n_2=5\)</td>
+</tr>
+<tr>
+<td>\(\bar{x_1}=7.83\)</td>
+<td>\(\bar{x_2}=5.80\)</td>
+</tr>
+<tr>
+<td>\(s_1^2 = 1.81\)</td>
+<td>\(s_2^2 = 2.96\)</td>
+</tr>
+</tbody></table>
+
+</section>
+<section class="slide class" id="sampINDEX4">
+  <h3>Perform the F Test for the Variances</h3>
+  <ul>
+<li>F test Hypothesis </li>
+</ul>
+
+<p>\(H_0: \sigma_1^1 = \sigma_2^1\) and \(H_1: \sigma_1^1 \neq \sigma_2^1\)</p>
+
+<ul>
+<li>F test Statistic</li>
+</ul>
+
+<p>\(F = \frac{s^2_{larger}}{s^2_{smaller}}\) = \(F = \frac{2.96}{1.81}\) = \(F = 1.64\) with </p>
+
+<p>\(df_{numerator}\) and \(df_{denominator}\) ==&gt; This is 2 steps!</p>
+
+<p>\(df_{numerator}=n_1 - 1 = 5-1 = 4\) and \(df_{denominator}=n_2 - 1 = 6-1 = 5\)</p>
+
+<p><em>Result</em> </p>
+
+<p>\(F_{OBTAINED} = 1.64\)  and \(F_{CRITICAL} = 5.19\) with \(df=(4,5)\) and our final decision for the equation to use is:</p>
+
+<p>\(F_{OBTAINED} = 1.64 < F_{CRITICAL 0.5} = 5.19 (df=4 and 5)\)</p>
+
+<p>We do NOT REJECT THE Null and conclude that we use the </p>
+
+<p><strong>t test for EQUAL Population Variances</strong></p>
+
+<p><em>rarely do we have to change our test statistic because F is calculated from the sample or the population</em></p>
+
+</section>
+<section class="slide class" id="sampINDEX5">
+  <h3>Calculate the test statistic: t Test for EQUAL POPULATION VARIANCES</h3>
+  <p>\(t = \frac{\bar{x_1} - \bar{x_2}}{\sqrt{\bigg(\frac{n_1s_1^2 +n_2s_2^2}{n_1+n_2-2}\bigg)\bigg(\frac{1}{n_1}+\frac{1}{n_2}\bigg)}}\)</p>
+
+<ul>
+<li><p>Where \(df = n_1 + n_2 = 2\)</p></li>
+<li><p>PRO TIP:  &quot;Solve this big equation by finding the components and then plugging them into the equation at the end.&quot;</p></li>
+</ul>
+
+<p>\(\bar{x}_1 - \bar{x}_2 = 7.83 - 5.80 = 2.03\)</p>
+
+<p>\(\frac{n_1s_1^2 + n_2s_2^2}{n_1+n_2-2}\) = \(\frac{6(1.81)+5(2.96)}{6+5-2}\) = \(\frac{10.86+14.80}{11-2}\)=\(\frac{25.66}{9}=2.85\)</p>
+
+<p>\(\frac{1}{n_1}+\frac{1}{n_2}\)=\(\frac{1}{6}+\frac{1}{5}\)= \(0.17+0.20 = 0.37\)</p>
+
+<p>\(\sqrt{\bigg( \frac{n_1s_1^2 + n_2s_2^2 }{n_1+n_2-2}\bigg) \bigg( \frac{1}{n_1} + \frac{1}{n_2} \bigg)}\) = \(\sqrt{(2.85)(0.37)}\) = \(\sqrt{1.0545}\) = \(1.0268\) </p>
+
+<ul>
+<li>This is where we calculate t:</li>
+</ul>
+
+<p>\(t = \frac{\bar{x_1} - \bar{x_2}}{\sqrt{\bigg(\frac{n_1s_1^2 +n_2s_2^2}{n_1+n_2-2}\bigg)\bigg(\frac{1}{n_1}+\frac{1}{n_2}\bigg)}}\) = \(\frac{2.03}{1.0268}\) = \(1.9708\) = \(t_{obtained}=1.971\)</p>
+
+<p>Degrees of Freedom \(df=n_1+n_2-2 = 6+5-2 =11-2 = 9\)</p>
+
+</section>
+<section class="slide class" id="sampINDEX6">
+  
+  <p><strong>COMPARE t test calculate to critical for decision on rejecting the null hypothesis</strong></p>
+
+<ul>
+<li>\(t_{critical}\) is for a DIRECTIONAL \(H_1\) at \(\alpha=0.5\)</li>
+</ul>
+
+<p>Decisions: remember we are using DIRECTIONAL here</p>
+
+<ul>
+<li>One Tail: At \(\alpha = 0.025\) level, \(t_{critical}(df=9) = 2.262 > 1.971\) SINCE \(p < 0.05\)</li>
+<li>Two Tail: At \(\alpha=0.05\) level, \(t_{critical}(df=9) = 1.833 < 1.971\)</li>
+</ul>
+
+<p><strong>We use the One Tail ONLY FOR THIS LONG EXAMPLE. We conclude the following:</strong></p>
+
+<p>We reject \(H_0\) in favor of the alternative \(H_1\) such that \(\mu_1 > \mu_2\). This particular commercial does increase favor ability ratings of the product! We tell the marketing department that if the assumption that the entire consumer population had viewed the commercial then their mean support score would increase.</p>
+
+</section>
+<section class="slide class" id="sampINDEX7">
+  <h3>t-test Solving Example 1 Page 283: UNEQUAL VARIANCES</h3>
+  <p>What if our example had different scores? Let&#39;s revisit the problem with some new scores and see what happens when we have UNEQUAL VARIANCES.</p>
+
+<table><thead>
+<tr>
+<th>Experimental Group</th>
+<th>Control Group</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>\(x_{experimental}\)</td>
+<td>\(x_{control}\)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>6</td>
+<td>10</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1</td>
+</tr>
+<tr>
+<td>7</td>
+<td>3</td>
+</tr>
+<tr>
+<td>9</td>
+<td>6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>9</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>\(n_{experimental}=6\) and \(n_{control}=5\)</li>
+<li>\(\bar{x}_{experimental}=47\) and \(\bar{x}_{control}=29\)</li>
+<li>Means for our groups
+
+<ul>
+<li>\(\bar{x}_{experimental}=\frac{\Sigma x_{experimental}}{n_{experimental}}=\frac{47}{6}=7.83\)</li>
+<li>\(\bar{x}_{control}=\frac{\Sigma x_{control}}{n_{control}}=\frac{29}{5}=5.80\)</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="sampINDUN1">
+  
+  <p>Calculate the Variance (from scratch, these may or may not be provided to you in an exam or homework...know this skill even if you don&#39;t need it for a particular problem.) </p>
+
+<ul>
+<li>Square the raw scores</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Experimental Group</th>
+<th>Control Group</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>\(x_{experimental}\)</td>
+<td>\(x_{control}\)</td>
+</tr>
+<tr>
+<td>100</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>36</td>
+<td>100</td>
+</tr>
+<tr>
+<td>64</td>
+<td>1</td>
+</tr>
+<tr>
+<td>49</td>
+<td>9</td>
+</tr>
+<tr>
+<td>81</td>
+<td>36</td>
+</tr>
+<tr>
+<td>49</td>
+<td>81</td>
+</tr>
+</tbody></table>
+
+<pre><code>* For Experimental Variance
+</code></pre>
+
+<p>\(\Sigma x_1^2 = 379\) </p>
+
+<p>\(s_1^2 = \frac{\Sigma x_1^2 - \frac{(\Sigma x_1)^2}{n_1}}{n_1}\) = \(s_1^2 = \frac{379 - \frac{(47)^2}{6}}{6}\) = \(s_1^2 = \frac{379 - \frac{2206}{6}}{6}\)</p>
+
+<p>\(s_1^2 = \frac{379 - 368.17}{6}\) =\(s_1^2 = 1.81\)</p>
+
+<pre><code>* For Control Variance
+</code></pre>
+
+<p>\(\Sigma x_2^2= 227\) </p>
+
+<p>\(s_2^2 = \frac{\Sigma x_2^2 - \frac{(\Sigma x_2)^2}{n_2}}{n_2}\) = \(s_2^2 = \frac{227 - \frac{(29)^2}{5}}{5}\)</p>
+
+<p>\(s_2^2 = \frac{227 - \frac{841}{5}}{5}\) = \(s_2^2 = \frac{227 - 168.2}{5} = \frac{58.8}{5} = 11.76\)</p>
+
+</section>
+<section class="slide class" id="sampINDUN2">
+  <h3>Summarizing the results So Far</h3>
+  <table><thead>
+<tr>
+<th>Experimental</th>
+<th>Control</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>\(n_1=6\)</td>
+<td>\(n_2=5\)</td>
+</tr>
+<tr>
+<td>\(\bar{x_1}=7.83\)</td>
+<td>\(\bar{x_2}=5.80\)</td>
+</tr>
+<tr>
+<td>\(s_1^2 = 1.81\)</td>
+<td>\(s_2^2 = 11.76\)</td>
+</tr>
+</tbody></table>
+
+</section>
+<section class="slide class" id="sampINDUN3">
+  <h3>Next, Perform the F Test for the Variances</h3>
+  <ul>
+<li>F test Hypothesis </li>
+</ul>
+
+<p>\(H_0: \sigma_1^1 = \sigma_2^1\) and \(H_1: \sigma_1^1 \neq \sigma_2^1\)</p>
+
+<ul>
+<li>F test Statistic</li>
+</ul>
+
+<p>\(F = \frac{s^2_{larger}}{s^2_{smaller}}\) = \(F = \frac{11.76}{1.81}\) = \(F = 6.497\) with  \(df_{numerator}\) and \(df_{denominator}\) ==&gt; This is 2 steps!</p>
+
+<p>\(df_{numerator}=n_1 - 1 = 5-1 = 4\) and \(df_{denominator}=n_2 - 1 = 6-1 = 5\)</p>
+
+<p><em>Result</em> </p>
+
+<p>\(F_{OBTAINED} = 6.497\)  and \(F_{CRITICAL} = 5.19\) with \(df=(4,5)\) and our final decision for the equation to use is:</p>
+
+<p>\(F_{OBTAINED} = 6.497 > F_{CRITICAL 0.5} = 5.19 (df=4 and 5)\)</p>
+
+<p>We REJECT THE Null and conclude that we use the </p>
+
+<p><strong>t test for UNEQUAL Population Variances</strong></p>
+
+<p><em>rarely do we have to change our test statistic because F is calculated from the sample or the population</em></p>
+
+</section>
+<section class="slide class" id="sampINDUN4">
+  
+  <p>Again, we calculate the test statistic: t Test BUT THIS TIME WE USE THE UNEQUAL POPULATION VARIANCES</p>
+
+<p>\(t = \frac{\bar{x_1}-\bar{x_2}}{\sqrt{\frac{s_1^2}{n_1-1} + \frac{s_2^2}{n_2-1}}}\)</p>
+
+<ul>
+<li>\(df\) Estimate: whichever \(n\) is smaller</li>
+<li>\(df\) Exact:</li>
+</ul>
+
+<p>\(df_{exact}=\frac{\big(\frac{s_1^2}{n_1 - 1}+\frac{s_2^2}{n_2-2}\big)^2}{\Bigg[\frac{\big(\frac{s_1^2}{n_1-1}\big)^2}{\big(n_1-1\big)}\Bigg]+\Bigg[\frac{\big(\frac{s_2^2}{n_2-1}\big)^2}{\big(n_2-1\big)}\Bigg]}\)</p>
+
+<ul>
+<li>PRO TIP:  &quot;Solve this big equation by finding the components and then plugging them into the equation at the end.&quot;</li>
+</ul>
+
+<p>\(\bar{x}_1 - \bar{x}_2 = 7.83 - 5.80 = 2.03\)</p>
+
+<p>\(\frac{s_1^2}{n_1-1}=\frac{1.81}{6-1}=\frac{1.81}{5}=0.36\)
+\(\frac{s_2^2}{n_2-1}=\frac{11.76}{5-1}=\frac{11.76}{4}=2.94\)</p>
+
+<p>\(\sqrt{\frac{s_1^2}{n_1-1} +\frac{s_2^2}{n_2-1}}=\sqrt{0.36 + 2.94}=\sqrt{3.3}=1.82\)</p>
+
+<ul>
+<li>This is where we calculate t:</li>
+</ul>
+
+<p>\(t = \frac{\bar{x_1}-\bar{x_2}}{\sqrt{\frac{s_1^2}{n_1-1} + \frac{s_2^2}{n_2-1}}}\)</p>
+
+<p>\(t = \frac{2.03}{1.82}=1.115\)</p>
+
+</section>
+<section class="slide class" id="sampINDUN4">
+  
+  <p><em>Decisions:</em> \(df=n_2=5\) or you can use the exact df equation.</p>
+
+<p><strong>COMPARE t test calculate to critical for decision on rejecting the null hypothesis</strong></p>
+
+<ul>
+<li><p>\(t_{obtained=1.115}\)</p></li>
+<li><p>\(t_{critical}\) is for a DIRECTIONAL \(H_1\) at \(\alpha=0.5\)</p></li>
+</ul>
+
+<p>Decisions: remember we are using DIRECTIONAL here</p>
+
+<ul>
+<li>One Tail: At \(\alpha = 0.025\) level, \(t_{critical}(df=9) = 2.262 > 1.971\) SINCE \(p < 0.05\)</li>
+<li>Two Tail: At \(\alpha=0.05\) level, \(t_{critical}(df=9) = 1.833 < 1.971\)</li>
+</ul>
+
+<p><strong>We use the One Tail ONLY FOR THIS LONG EXAMPLE. We conclude the following:</strong></p>
+
+<p>We CANNOT reject \(H_0\) in favor of the alternative \(H_1\) such that \(\mu_1 > \mu_2\). This particular commercial does NOT increase favor ability ratings of the product! We tell the marketing department that if the assumption that the entire consumer population had viewed the commercial then their mean support score would NOT increase.</p>
+
+</section>
+<section class="slide class" id="sampINDUN5">
+  <h2>The DF long way for UNEQUAL VARIANCES</h2>
+  <p>The equation for this procedure is: </p>
+
+<p>\(df_{exact}=\frac{\big(\frac{s_1^2}{n_1 - 1}+\frac{s_2^2}{n_2-2}\big)^2}{\Bigg[\frac{\big(\frac{s_1^2}{n_1-1}\big)^2}{\big(n_1-1\big)}\Bigg]+\Bigg[\frac{\big(\frac{s_2^2}{n_2-1}\big)^2}{\big(n_2-1\big)}\Bigg]}\)</p>
+
+<p>To solve it, using the previous example, we would find the components piece by piece and then plug them in to solve the equation. </p>
+
+</section>
+<section class="slide class" id="df1">
+  <h2>Steps for the df calculation the long way:</h2>
+  <ul>
+<li>Step One df: \(\frac{s_1^2}{n_1-1}=\frac{1.81}{6-1}=\frac{1.81}{5}=0.36\)</li>
+<li>Step Two df: \(\bigg( \frac{s_1^2}{n_1-1} \bigg)^2=(.36)^2=0.13\)</li>
+<li>Step Three df: \(\frac{s_2^2}{n_2-1}=\frac{11.76}{5-1}=\frac{11.76}{4}=2.94\)</li>
+<li>Step Four df: \(\bigg( \frac{s_2^2}{n_2-1} \bigg)^2=(2.94)^2=8.64\)</li>
+<li>Step Five df: \(\bigg( \frac{s_1^2}{n_1-1} + \frac{s_2^2}{n_2-1} \bigg)^2=(0.36 + 2.94)^2=(3.30)^2=10.89\)</li>
+</ul>
+
+</section>
+<section class="slide class" id="df2">
+  <h2>Steps for the df calculation the long way:</h2>
+  <ul>
+<li>Step Six df: \(\frac{\bigg( s_1^2\bigg)^2}{(n_1-1)}=\frac{0.13}{6-1}=\frac{0.13}{5}=0.26 \approx 0.3\)</li>
+<li>Step Seven df: \(\frac{\bigg( s_2^2\bigg)^2}{(n_2-1)}=\frac{8.64}{5-1}=\frac{8.64}{4}=2.16\)</li>
+<li>Step Eight df FINAL STEP!:<br>
+\(df_{exact}=\frac{\big(\frac{s_1^2}{n_1 - 1}+\frac{s_2^2}{n_2-2}\big)^2}{\Bigg[\frac{\big(\frac{s_1^2}{n_1-1}\big)^2}{\big(n_1-1\big)}\Bigg]+\Bigg[\frac{\big(\frac{s_2^2}{n_2-1}\big)^2}{\big(n_2-1\big)}\Bigg]}=\frac{10.89}{0.3+2.16}=4.97\)</li>
+</ul>
+
+</section>
+<section class="slide class" id="df3">
+  <h2>Drum roll for the result!</h2>
+  <ul>
+<li>The computer would list this as df = 4.97 </li>
+<li>DO NOT ROUND UP.</li>
+<li><p>The final df = 4</p></li>
+<li><p>We still have the same result, but sometimes this is a slight issue. Go with the computer generated values for most of the time. Rarely, do we ever do this by hand again. Well, unless our computers fail!</p></li>
+<li><p>Result: \(t_{critical}\), one-tailed, \(0.05 \alpha\) level, with \(df=4\)</p></li>
+<li><p>2.32 &gt; 1.15 and we CAN NOT REJECT THE \(H_0\) IN FAVOR OF THE \(H_1\)</p></li>
+</ul>
+
+</section>
+<section class="slide class" id="dfex3">
+  <h2>Warnings about directional hypotheses.</h2>
+  <ul>
+<li>Always use the critical value for the \(\alpha\) that is given. Usually 0.05.</li>
+<li>Decide on one or two tail and stick with that decision throughout the analysis. Do not mix up the critical values for one tail or two tail for comparing your obtained statistic. If you pick one tail....STICK TO ONE TAIL!</li>
+<li>One tail requires prior knowledge to make that &quot;leap&quot; of statistical faith.</li>
+</ul>
+
+</section>
+<section class="slide class" id="hypwarning">
+  <h2>Next time we will conclude with</h2>
+  <ul>
+<li>Adjustments for Sigma-Hat Squared \(\hat{\sigma}^2\)</li>
+<li>Interpreting a Computer-Generated t Test</li>
+<li>Computer Applications: Independent Samples t Tests</li>
+<li>The Two-Sample t Test for Dependent Samples</li>
+<li>Computer Applications: Dependent Samples t Tests</li>
+<li>Statistical Significance versus Research Significance</li>
+<li>Statistical Power</li>
+<li>Conclusions/RECAP</li>
+</ul>
+
+</section>
+<section class="slide class" id="chapters">
+  <h2>Key Concepts</h2>
+  <ul>
+<li>Independent Samples (Independent Drawn Samples)[PAGE 273]
+
+<ul>
+<li>The composition of one sample is in no way matched or paired to the composition of the other sample. Thus, the two samples reflect two <em>SEPARATE POPULATIONS</em></li>
+</ul></li>
+<li>Dependent Samples: Matched Pairs [PAGE 275]
+
+<ul>
+<li>Situation in which members of one sample are not selected independently, but are instead determined by the makeup of the other sample. (they reflect the other group but are NOT THE SAME GROUP.)</li>
+</ul></li>
+<li>Dependent Samples: Matched Pairs (paired difference) t test [PAGE 275]
+
+<ul>
+<li>The t test used when the two samples are dependent samples.</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="concepts1">
+  <h2>Key Concepts Continued</h2>
+  <ul>
+<li>Pooled Estimate of Common Variance [PAGE 276]
+
+<ul>
+<li>Estimate based on a weighted average of two sample variances being used to estimate the population variance in finding the standard error.</li>
+</ul></li>
+<li>F test for Homogeneity of Variance [PAGE 276]
+
+<ul>
+<li>A test, based on the sample variances, used to determine the most appropriate \(t\) test formula to use.</li>
+</ul></li>
+<li>Paired Difference t test [PAGE 298]
+
+<ul>
+<li>A one-sample \(t\) test applied to the differences in each pairs of scores.</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="concepts2">
+  <h2>Key Concepts Continued</h2>
+  <ul>
+<li>Research Significance versus Statistical Significance
+
+<ul>
+<li>Research Significance [PAGE 306]: Relevance, importance of a particular difference of means or other findings.</li>
+<li>Statistical Significance [PAGE 306]: The high probability that the difference between the two means or other finding based on a random sample is not the result of sampling error but reflects the characteristics of the population from which the sample was drawn.</li>
+</ul></li>
+<li>Statistical Power  [PAGE 306]
+
+<ul>
+<li>The likelihood that our test will reject the null hypothesis when, in fact, \(H_1\), relay is true.</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="concepts3">
+  <h2>Key Concepts Continued</h2>
+  <ul>
+<li>Type II Error (beta error) \(\beta\) [PAGE 307]
+
+<ul>
+<li>The probability that the null hypothesis is really false and \(H_1\) is really true. Our obtained statistic (either \(z\), \(t\), etc.) was too low to enable us to reject the \(H_0\) (null hypothesis) even though it &quot;ought to be&quot; rejected.</li>
+</ul></li>
+<li>Type I Error (alpha error) \(\alpha\) [PAGE 307]
+
+<ul>
+<li>The probability of mistakenly rejecting a true null hypothesis (\(H_1\))</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="concepts4">
+  <h2>Key Concepts Continued</h2>
+  <ul>
+<li>Small Effects [PAGE 308]
+
+<ul>
+<li>Hypothesized \(.2\sigma\) difference between \(\mu\) for the experimental group and \(\mu\) for the control groups.</li>
+</ul></li>
+<li>Medium Effects [PAGE 307]
+
+<ul>
+<li>HYPOTHESIZED \(.5\sigma\) difference between the population means.</li>
+</ul></li>
+<li>Large Effects [PAGE 307]
+
+<ul>
+<li>A \(.8\sigma\) population mean difference.</li>
+<li>Only the LARGER MEAN DIFFERENCES are found to be statistically significant for a majority of the time in social sciences.</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="concepts5">
+  <h2>Equations for this Chapter</h2>
+  <h3>Independently Drawn Samples</h3>
+
+<p><strong>F Test for Homogeneity of Variables</strong></p>
+
+<p>\(F = \frac{s^2_{larger}}{s^2_{smaller}}\)</p>
+
+<p>\(df\) numerator = \(n-1\) for the sample with the larger variance</p>
+
+<p>\(df\) denominator = \(n-1\) for the sample with the smaller variance</p>
+
+</section>
+<section class="slide class" id="eq1">
+  <h3>The Two-Sample t Test Calculated from S</h3>
+  <p><strong>Equal Population Variances Assumed</strong></p>
+
+<p>\(t = \frac{\bar{x_1} - \bar{x_2}}{\sqrt{\bigg(\frac{n_1s_1^2 +n_2s_2^2}{n_1+n_2-2}\bigg)\bigg(\frac{1}{n_1}+\frac{1}{n_2}\bigg)}}\)</p>
+
+<ul>
+<li>Where \(df = n_1 + n_2 = 2\)</li>
+</ul>
+
+</section>
+<section class="slide class" id="eq2">
+  
+  <p><strong>Unequal Population Variances Assumed</strong></p>
+
+<p>\(t = \frac{\bar{x_1}-\bar{x_2}}{\sqrt{\frac{s_1^2}{n_1-1} + \frac{s_2^2}{n_2-1}}}\)</p>
+
+<ul>
+<li>\(df\) Estimate: whichever \(n\) is smaller</li>
+<li>\(df\) Exact:</li>
+</ul>
+
+<p>\(df_{exact}=\frac{\big(\frac{s_1^2}{n_1 - 1}+\frac{s_2^2}{n_2-2}\big)^2}{\Bigg[\frac{\big(\frac{s_1^2}{n_1-1}\big)^2}{\big(n_1-1\big)}\Bigg]+\Bigg[\frac{\big(\frac{s_2^2}{n_2-1}\big)^2}{\big(n_2-1\big)}\Bigg]}\)</p>
+
+</section>
+<section class="slide class" id="eq3">
+  <h3>The Two-Sample \(t\) Test Calculated from \(\hat{\sigma}^2\)</h3>
+  <p><strong>Equal Population Variances Assumed</strong></p>
+
+<p>\(t=\frac{\bar{x_1}-\bar{x_2}}{\sqrt{\Bigg[ \frac{(n_1 - 1)\hat{\sigma_1}^2+(n_2-1)\hat{\sigma_2}^2}{n_1+n_2-2} \Bigg]\Bigg[ \frac{1}{n_1} + \frac{1}{n_2}\Bigg]}}\)</p>
+
+<ul>
+<li>Where \(df=n_1+n_2-2\)</li>
+</ul>
+
+</section>
+<section class="slide class" id="eq4">
+  
+  <p><strong>Unequal Population Variances Assumed</strong></p>
+
+<p>\(t = \frac{\bar{x_1}-\bar{x_2}}{\sqrt{\frac{\hat{\sigma}_1^2}{n_1}+\frac{\hat{\sigma}^2_2}{n_2}}}\)</p>
+
+<ul>
+<li>\(df\) Estimate: whichever \(n\) is smaller</li>
+<li>\(df\) Exact:</li>
+</ul>
+
+<p>\(df_{exact}=\frac{\bigg( \frac{\sigma^2_1}{n_1} + \frac{\sigma^2_2}{n_1}  \bigg)^2}{\Bigg[\frac{\bigg( \frac{\sigma^2_1}{n_1}\bigg)^2}{n_1-1} \Bigg] + \Bigg[ \frac{\bigg( \frac{\sigma^2_2}{n_2}\bigg)^2}{n_2-1}\Bigg]}\)</p>
+
+</section>
+<section class="slide class" id="eq5">
+  
+  <p><strong>Dependent Samples</strong> </p>
+
+<p>\(t = \frac{\bar{D}}{\frac{S_D}{\sqrt{n_p -1}}}\)</p>
+
+<ul>
+<li>Where \(S_D=\sqrt{\frac{\Sigma(D-\bar{D})^2}{n_p}}\)</li>
+</ul>
+
+<p>and \(df=n_p -1\)</p>
+
+</section>
+<section class="slide class" id="eq6">
+  <h2>Next Time</h2>
+  <ol>
+<li>Don&#39;t forget that Homework 2 is due</li>
+<li>Chapter 10 (introduction to 10)</li>
+<li>Examples of z scores are on the class website</li>
+<li>Examples of t will be on the class website</li>
+<li>Feedback will be on the class portal for each assignment</li>
+<li>Winners will be announced on Wednesday</li>
+<li>Wed. we will be doing a mock research project from start to finish</li>
+<li>Homework 3 will be coming up (11/03)</li>
+<li>Exam 1 (10/22)</li>
+<li>Writing Draft (10/29)</li>
+</ol>
+
+</section>
+</body>
+  <!-- deck.navigation snippet -->
+  <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+  <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+  
+  <!-- deck.status snippet -->
+  <p class="deck-status">
+  <span class="deck-status-current"></span>
+    /
+  <span class="deck-status-total"></span>
+  </p>
+  
+  <!-- deck.goto snippet -->
+  <form action="." method="get" class="goto-form">
+  	<label for="goto-slide">Go to slide:</label>
+  	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+  	<datalist id="goto-datalist"></datalist>
+  	<input type="submit" value="Go">
+  </form>
+  
+  <!-- deck.hash snippet -->
+  <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  
+  
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/frameworks/deckjs/jquery-1.7.min.js"><\/script>')</script>
+  
+  <!-- Add Slide Class to Build Elements -->
+  <script type='text/javascript'>
+  $('ol.build li').addClass('slide')
+  $('ul.build li').addClass('slide')
+  </script>
+  
+  <!-- Deck Core and extensions -->
+  <script src="libraries/frameworks/deckjs/core/deck.core.js"></script>
+  <script src="libraries/frameworks/deckjs/extensions/goto/deck.goto.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/hash/deck.hash.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/menu/deck.menu.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/navigation/deck.navigation.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/scale/deck.scale.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/status/deck.status.js"></script>
+<!-- Initialize the deck -->
+  <script>
+  $(function() {
+  	$.deck('.slide');
+  });
+  </script>  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script> -->
+<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<script>  
+$(function (){ 
+  $("#example").popover(); 
+  $("[rel='tooltip']").tooltip(); 
+});  
+</script>   
+
+</html>
