@@ -41,6 +41,10 @@
 
   <!-- Begin slides -->
   <section class="slide " id="slide-1">
+  <h1>Monday 9/13/14 Lecture</h1>
+  
+</section>
+<section class="slide class" id="title">
   <h2>Topics for this Week</h2>
   <ol>
 <li>Recap</li>
@@ -787,17 +791,522 @@
 
 </section>
 <section class="slide class" id="hypwarning">
-  <h2>Next time we will conclude with</h2>
-  <ul>
-<li>Adjustments for Sigma-Hat Squared \(\hat{\sigma}^2\)</li>
-<li>Interpreting a Computer-Generated t Test</li>
-<li>Computer Applications: Independent Samples t Tests</li>
-<li>The Two-Sample t Test for Dependent Samples</li>
-<li>Computer Applications: Dependent Samples t Tests</li>
-<li>Statistical Significance versus Research Significance</li>
-<li>Statistical Power</li>
-<li>Conclusions/RECAP</li>
+  <h1>Wednesday 10/15/14 Lecture</h1>
+  
+</section>
+<section class="slide class" id="wed">
+  <h2>Adjustments for Sigma-Hat Squared \(\hat{\sigma}^2\)</h2>
+  <p>Sometimes we are calculating the test statistic from an estimate of the population parameters from sample data. This is \(\hat{\sigma}^2\). </p>
+
+<h3>Variance Estimate: Sigma Hat Squared Equation</h3>
+
+<p>\(\hat{\sigma}^2=\frac{\Sigma(x-\bar{x})^2}{n-1}\)</p>
+
+<h3>Standard Deviation Estimate: Sigma Hat Equation</h3>
+
+<p>\(\hat{\sigma}=\sqrt{\frac{\Sigma(x-\bar{x})^2}{n-1}}\)</p>
+
+</section>
+<section class="slide class" id="sigmahat">
+  <h3>Revisiting the Advertising Problem</h3>
+  <table><thead>
+<tr>
+<th>Sample 1</th>
+<th>Sample 2</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>\(n_1=6\)</td>
+<td>\(n_1=5\)</td>
+</tr>
+<tr>
+<td>\(\bar{x}_1=7.83\)</td>
+<td>\(\bar{x}_2=5.80\)</td>
+</tr>
+<tr>
+<td>\(\hat{\sigma}_1^2=2.17\)</td>
+<td>\(\hat{\sigma}_2^2=3.70\)</td>
+</tr>
+</tbody></table>
+
+<p>First, we have to adjust for the use of an estimate of variance using the t-equation. Our equation is: <strong>Equal Population Variances Assumed</strong></p>
+
+<p>\(t=\frac{\bar{x_1}-\bar{x_2}}{denominator}\)</p>
+
+<p>Where the \(denominator= \sqrt{ \Bigg[ \frac{(n_1-1)\hat{\sigma_1^2}+(n_2-1)\hat{\sigma_2}^2}{n_1+n_2-2} \Bigg] \Bigg[ \frac{1}{n_1} + \frac{1}{n_2}\Bigg]}\)</p>
+
+<ul>
+<li>Where \(df=n_1+n_2-2\) and for our problem \(df=6+5-2=11-2=9\)</li>
 </ul>
+
+</section>
+<section class="slide class" id="sigmahat1">
+  <h2>Solving our new problem Equal Variances</h2>
+  <ul>
+<li>Step One find the components of the large equation</li>
+</ul>
+
+<p>The numerator: \(\bar{x}_1-\bar{x}_2=7.83-5.80=2.03\)</p>
+
+<p>The denominator components:</p>
+
+<p>\(\bigg[\frac{1}{n_1}+\frac{1}{n_2}\bigg]=\bigg[\frac{1}{6}+\frac{1}{5}\bigg]=0.37\)</p>
+
+<p>\(\frac{(n_1-1)\hat{\sigma_1^2}+(n_2-1)\hat{\sigma_2}^2}{n_1+n_2-2}=\frac{(6-1)(2.17)+(5-1)(3.70)}{6+5-2}=\frac{5(2.17)+4(3.70)}{11-2}=\frac{10.85+14.80}{9}=\frac{25.65}{9}=2.85\)</p>
+
+<ul>
+<li>Step Two calculate the t statistic:</li>
+</ul>
+
+<p>\(t=\frac{2.03}{\sqrt{(2.85)(0.37)}}=\frac{2.03}{\sqrt{1.0545}}=\frac{2.03}{1.026889}=1.976846 \approx 1.977\)</p>
+
+</section>
+<section class="slide class" id="sigmahat2">
+  <h2>Revisiting the Advertising Problem: UnEqual Variances</h2>
+  <h3>Using sigma hat again.</h3>
+
+<table><thead>
+<tr>
+<th>Sample 1</th>
+<th>Sample 2</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>\(n_1=6\)</td>
+<td>\(n_1=5\)</td>
+</tr>
+<tr>
+<td>\(\bar{x}_1=7.83\)</td>
+<td>\(\bar{x}_2=5.80\)</td>
+</tr>
+<tr>
+<td>\(\hat{\sigma}_1^2=2.17\)</td>
+<td>\(\hat{\sigma}_2^2=14.70\)</td>
+</tr>
+</tbody></table>
+
+<p>First, we have to adjust for the use of an estimate of variance using the t-equation. Our equation is: <strong>Unequal Population Variances Assumed</strong></p>
+
+<p>\(t = \frac{\bar{x_1}-\bar{x_2}}{\sqrt{\frac{\hat{\sigma}_1^2}{n_1}+\frac{\hat{\sigma}^2_2}{n_2}}}\)</p>
+
+<ul>
+<li>\(df\) Estimate: whichever \(n\) is smaller</li>
+<li>\(df\) Exact:</li>
+</ul>
+
+<p>\(df_{exact}=\frac{\bigg( \frac{\hat{\sigma}^2_1}{n_1} + \frac{\hat{\sigma}^2_2}{n_1}  \bigg)^2}{\Bigg[\frac{\bigg( \frac{\hat{\sigma}^2_1}{n_1}\bigg)^2}{n_1-1} \Bigg] + \Bigg[ \frac{\bigg( \frac{\hat{\sigma}^2_2}{n_2}\bigg)^2}{n_2-1}\Bigg]}\)</p>
+
+</section>
+<section class="slide class" id="sigmahat3">
+  <h2>Steps to Solve</h2>
+  <ul>
+<li>Step One find the components of the large equation</li>
+</ul>
+
+<p>The numerator: \(\bar{x}_1-\bar{x}_2=7.83-5.80=2.03\)</p>
+
+<p>The denominator components:</p>
+
+<p>\(\sqrt{\frac{\hat{\sigma}_1^2}{n_1}+\frac{\hat{\sigma}^2_2}{n_2}}\)</p>
+
+<p>This works out to be: \(\sqrt{\frac{2.17}{6}+\frac{14.7}{6}}=\sqrt{.36+2.94}=\sqrt{3.3}=1.82\)</p>
+
+<ul>
+<li>Step Two calculate the t statistic: \(t=\frac{2.03}{1.82}=1.115\) </li>
+</ul>
+
+</section>
+<section class="slide class" id="sigmahat4">
+  <h3>The Degrees of Freedom for our problem</h3>
+  <ul>
+<li>\(df\) Estimate: whichever \(n\) is smaller = 5</li>
+<li>\(df\) Exact:</li>
+</ul>
+
+<p>\(df_{exact}=\frac{\bigg( \frac{\hat{\sigma}^2_1}{n_1} + \frac{\hat{\sigma}^2_2}{n_1}  \bigg)^2}{\Bigg[\frac{\bigg( \frac{\hat{\sigma}^2_1}{n_1}\bigg)^2}{n_1-1} \Bigg] + \Bigg[ \frac{\bigg( \frac{\hat{\sigma}^2_2}{n_2}\bigg)^2}{n_2-1}\Bigg]} = 4.97\)</p>
+
+</section>
+<section class="slide class" id="sigmahat5">
+  <h2>Interpreting a Computer-Generated t Test</h2>
+  <p>Sometimes, we have a lot of data to look at. Calculating the statistic would be extremely difficult! We can use SPSS (and in other classes we can use other programs like SAS, R, Excel, etc.). Let&#39;s try to do this by using SPSS.</p>
+
+<p>Let&#39;s use our data and put that into SPSS.</p>
+
+<ul>
+<li>Step 1: Open SPSS</li>
+<li><p>Step 2: Enter the data or read the data into SPSS</p>
+
+<pre><code>  * This is counter-intuitive...you must enter the data in a specific way for this to work! It is not the same way you would do this in any other program. It is specific to SPSS. I have saved this exercise as a .sav file for you to read into SPSS.
+</code></pre></li>
+</ul>
+
+<h2>Analyzing data in SPSS: t test independent</h2>
+
+<p><img src="spss1.png" alt="width"></p>
+
+<ul>
+<li><p>Step 3: Click on Analyze--&gt;Compare Means--&gt;Independent Samples</p>
+
+<pre><code>  * Be sure to click on define groups
+</code></pre></li>
+</ul>
+
+<p><img src="spss2.png" alt="width"></p>
+
+</section>
+<section class="slide class" id="interp1">
+  
+  <ul>
+<li>Step 4: The result</li>
+</ul>
+
+<p><img src="spss3.png" alt="width"></p>
+
+<p>Interpretation:</p>
+
+<ol>
+<li>\(F = .258\) and significance = .623 we cannot reject a null hypothesis: Equal variances assumed!</li>
+<li>\(t = 1.990\) and our significance is 0.078 (this time it&#39;s for a two tailed.) UH OH! Now What? We divide the significance by 2. \(sig=0.039\) which is slightly more than .025. We CAN reject the \(H_0\) this time. </li>
+</ol>
+
+<p>The significance for this test is the displayed significance divided by two. Since the t statistic has a symmetrical distribution, the &quot;significant&quot; tails will have the same probability (e.g. in a two-tailed test, a .05 criteria reflects that the .025 tails will reflect significance). Since we are looking at only one of those tails, we would divide the significance in half to determine if the t statistic is significant or not.</p>
+
+</section>
+<section class="slide class" id="interp2">
+  <h3>Rules for interpreting the output from SPSS</h3>
+  <p>1) Examine the probability of \(F\). &lt;- THIS IS TWO TAILED!</p>
+
+<p>1.1 If the probability of \(F > .05\) we cannot reject a null of equal population variances and assume equal population variances.  <em>use the Equal variances</em></p>
+
+<p>1.2 If the probability of \(F \leq .05\) we reject the \(H_0\) and assume unequal population variances. <em>use the UNEqual variances</em></p>
+
+<p>2) Examine the appropriate t statistic (equal or unequal variances) &lt;- Based on your decision for directional or non-directional hypothesis.</p>
+
+<p>2.1 If the probability of significance (Sig.) of \(|t| > .05\) we <strong>DO NOT</strong> REJECT the initial \(H_0\) (two tailed)</p>
+
+<p>2.2 If the probability of significance (Sig.) of \(|t| \leq .05\) we <strong>REJECT</strong> the t test&#39;s \(H_0\) in favor of the \(H_1\) (for one tail lower)</p>
+
+<p>2.3 <em>If the probability of significance (Sig.) of \(|t| \geq .05\) we **REJECT</em>* the t test&#39;s \(H_0\) in favor of the \(H_1\). (for one tail extreme)</p>
+
+</section>
+<section class="slide class" id="interp3">
+  <h2>The Two-Sample t Test for Dependent Samples</h2>
+  <ul>
+<li>The infamous and interesting dependent or matched samples t tests!</li>
+<li>Paired Difference t test [PAGE 298]
+
+<ul>
+<li>A one-sample \(t\) test applied to the differences in each pairs of scores.</li>
+</ul></li>
+</ul>
+
+<p>Some people will call this a repeated measures if the people are being exposed to the non-treatment and then the treatment. It&#39;s also called pre-post test because you can pair the scores up with the people taking the test before and after the exposure. So for stats, we could do this by giving you a pre-test and then giving you a post-test. </p>
+
+</section>
+<section class="slide class" id="pairedt1">
+  <h3>Example Paired Difference t test</h3>
+  <p>Here&#39;s an example with our favorite Ad company: Titan Data Bandits. We want to see how well people view CSUF before an ad campaign starts. Our savvy leader, Rosie the Data Bandit has decided that we are going to be giving people a survey on our CSUF community. After that survey, those <strong>SAME EXACT PEOPLE</strong> are going to take the survey again and rate the CSUF community. Also, Rosie has used this commercial before and had favorable ratings. Sounds easy enough. What&#39;s our data?</p>
+
+<table><thead>
+<tr>
+<th>Before</th>
+<th>After</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>5</td>
+<td>10</td>
+</tr>
+<tr>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>8</td>
+</tr>
+<tr>
+<td>8</td>
+<td>7</td>
+</tr>
+<tr>
+<td>7</td>
+<td>9</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7</td>
+</tr>
+<tr>
+<td>\(\Sigma X_b=35\)</td>
+<td>\(\Sigma X_a=47\)</td>
+</tr>
+<tr>
+<td>\(n_b = 6\)</td>
+<td>\(n_a = 6\)</td>
+</tr>
+<tr>
+<td>\(\bar{X}_b=5.83\)</td>
+<td>\(\bar{X}_a=7.83\)</td>
+</tr>
+</tbody></table>
+
+</section>
+<section class="slide class" id="pairedt2">
+  <h3>Step One: Write the Hypothesis....it is directional!</h3>
+  <p>\(H_0: \mu_{before} = \mu_{after}\) and \(H_1: \mu_{before} < \mu_{after}\)</p>
+
+<p>But we can write this a statement about the differences...since that is really what we are looking at as well.</p>
+
+<p>\(H_0: \mu_D = 0\) and \(H_1: \mu_D > 0\)</p>
+
+<p>Think about this step critically...you want to ensure that you are using the right hypothesis. Remember that we only use directional if we have a pretty good idea that the hypothesis is directional <em>based</em> on previous knowledge!</p>
+
+</section>
+<section class="slide class" id="pairedt3">
+  <h2>Step Two: Identify the equation.</h2>
+  <p>This is easy...right? We saw that Rosie had <em>matched</em> the scores by using the <em>same</em> people. DO NOT MAKE ASSUMPTIONS. IF THE STATEMENT DOES NOT SAY ANYTHING ABOUT MATCHING...THEN IT IS NOT A PAIRED TEST! Do not make this mistake!</p>
+
+<p><strong>Dependent Samples</strong> </p>
+
+<p>\(t = \frac{\bar{D}}{\frac{S_D}{\sqrt{n_p -1}}}\)</p>
+
+<ul>
+<li>Where \(S_D=\sqrt{\frac{\Sigma(D-\bar{D})^2}{n_p}}\) and \(df=n_p -1\)</li>
+</ul>
+
+<p>What does this mean, you might ask. Glad you asked. </p>
+
+<ul>
+<li>\(n_p\): the number of matched pairs of scores in the sample</li>
+<li>\(D\): the difference (\(after_{score}-before{score}\)) for each pair of scores in the sample.</li>
+<li>\(\bar{D}\) is the mean of all our sample&#39;s difference scores (retaining their + or - signs).</li>
+<li>\(S_D\) is the sample standard deviation of the difference scores
+\(S_D=\sqrt{\frac{\Sigma(D-\bar{D})^2}{n_p}}\)</li>
+</ul>
+
+</section>
+<section class="slide class" id="pairedt4">
+  <h3>Steps to solve our problem!</h3>
+  <ol>
+<li>Subtract each before score from each after score to get each \(D\)</li>
+<li>Add the $D$s algebraically to get \(\Sigma D\) and Divide \(\Sigma D\) by \(n_p\) to get \(\bar{D}\)</li>
+<li>Subtract \(\bar{D}\) to get \((D-\bar{D})\)</li>
+<li>Square each \((D-\bar{D})\) to get \((D-\bar{D})^2\) </li>
+<li>Add together each \((D-\bar{D})\) to get \(\Sigma(D-\bar{D})^2\) &lt;- plug this into the \(S_D\) formula</li>
+<li>Divide \(\Sigma(D-\bar{D})^2\) by \(n_p\) to get the variance of sample differences</li>
+<li>Take the square root of the variance to reveal \(S_D\)</li>
+</ol>
+
+<p><strong>Ready</strong>....let&#39;s take this equation for a test drive!</p>
+
+</section>
+<section class="slide class" id="pairedt5">
+  <h3>Back to Solving our Problem for Rosie</h3>
+  <p>We notice a small problem with the numbers entered....it turns out some of the numbers had been switched. Pesky data entry people!</p>
+
+<table><thead>
+<tr>
+<th>Before</th>
+<th>After</th>
+<th>Step1:D</th>
+<th>Step3:\(D-\bar{D}\)</th>
+<th>Step4:\((D-\bar{D})^2\)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>5</td>
+<td>10</td>
+<td>5-10 = 5</td>
+<td>\(5-2=3\)</td>
+<td>\(3^2  =9\)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>6</td>
+<td>5-6  = 1</td>
+<td>\(1-2=-1\)</td>
+<td>\(-1^2 =1\)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>8</td>
+<td>7-8  =-1</td>
+<td>\(-1-2=-3\)</td>
+<td>\(-3^2 =9\)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>7</td>
+<td>8-7  = 1</td>
+<td>\(1-2=-1\)</td>
+<td>\(-1^2 =1\)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>7</td>
+<td>9-7  = 2</td>
+<td>\(2-2=0\)</td>
+<td>\(0^2 = 0\)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7</td>
+<td>7-3  = 4</td>
+<td>\(4-2=2\)</td>
+<td>\(2^2 = 4\)</td>
+</tr>
+</tbody></table>
+
+</section>
+<section class="slide class" id="pairedt6">
+  <h2>Steps to solve!</h2>
+  <ul>
+<li>Sum for Step 1: \(\Sigma D = 5+1-1+1+2+4 = 12\)<br></li>
+<li>Step 2: \(\bar{D}= \frac{\Sigma D}{n_p}= \frac{12}{6} = 2\)</li>
+<li>Step 5: \(\Sigma(D-\bar{D})^2=9+1+9+1+0+4=24\)</li>
+<li>Step 6 &amp; 7: Plug into our equation
+\(S_D=\sqrt{\frac{\Sigma(D-\bar{D})^2}{n_p}}=\sqrt{\frac{24}{6}}=\sqrt{4}=2\)</li>
+<li><p>Step 8: Complete the t equation for paired t.
+\(t = \frac{\bar{D}}{\frac{S_D}{\sqrt{n_p -1}}}=\frac{2}{\frac{2}{\sqrt{6-1}}}\)</p></li>
+<li><p>Where \(S_D=\sqrt{\frac{\Sigma(D-\bar{D})^2}{n_p}}\) and \(df=n_p -1\)</p></li>
+</ul>
+
+<p>Consolidate our terms: \(t=\frac{2}{\frac{2}{\sqrt{6-1}}}=\frac{2}{\frac{2}{\sqrt{5}}}\) Just move the \(\sqrt{5}\) to the numerator, cancel the 2s and solve!</p>
+
+<p>\(\frac{2\sqrt{5}}{2}=\sqrt{5}=2.236068 \approx 2.236\) where \(df=n_p-1=6-1=5\)</p>
+
+<p>Our result can be written like this \(t_{obtained}=2.236\) with \(df=5\). </p>
+
+</section>
+<section class="slide class" id="pairedt7">
+  
+  <p>The decision is as follows:</p>
+
+<p>For the one tail (so we know that the one tail is really split in half): \(t_{critical}.05 \alpha level = 2.015 < 2.236\) (Note: 2.236 is from the t table using degrees of freedom and one tail level of significance.) In this situation, we would REJECT \(H_0\). But are we done? Nope...because we are looking at ONE tail in the positive extreme region! Yikes, now what.</p>
+
+<p>Rosie, assures you that you must remain calm. The answer is in the table. Whew, that&#39;s a relief! So, let&#39;s do this again. \(t_{critical}.025 \alpha level = 2.571 > 2.236\) Wow! That was cool. Because in the end...we STILL can reject \(H_0\). Rosie is taking this to the marketing department...time to proceed with the commercial!</p>
+
+</section>
+<section class="slide class" id="pairedt8">
+  <h2>Rules for Decisions Using Hypothesis Testing</h2>
+  <p><strong>The type of test is determined by the Alternative Hypothesis (\(H_1\))</strong> </p>
+
+<p><strong>Absolute value of t is what we look at</strong></p>
+
+<h3>One Tailed Tests</h3>
+
+<h4>Left Tailed Test:</h4>
+
+<ul>
+<li>\(H_1\): parameter &lt; value</li>
+<li>Notice the inequality points to the left </li>
+<li>Decision Rule: Reject \(H_0\) if t.sample. &lt; critical.value. </li>
+</ul>
+
+<h4>Right Tailed Test</h4>
+
+<ul>
+<li>\(H_1\): parameter &gt; value</li>
+<li>Notice the inequality points to the right </li>
+<li>Decision Rule: Reject \(H_0\) if t.sample. &gt; critical.value. </li>
+</ul>
+
+<h3>Two Tailed Test</h3>
+
+<ul>
+<li>\(H_1\): parameter not equal value</li>
+<li>Another way to write not equal is &lt; or &gt;</li>
+<li>Notice the inequality points to both sides </li>
+<li>Decision Rule: Reject \(H_0\) if t.sample. &lt; critical.value. (left) or t.sample. &gt; critical.value. (right)</li>
+</ul>
+
+<h3>The decision rule can be summarized as follows:</h3>
+
+<ul>
+<li><p>Reject \(H_0\) if the test statistic falls in the critical region</p></li>
+<li><p>(Reject \(H_0\) if the test statistic is <strong>more extreme</strong> than the critical value) </p></li>
+</ul>
+
+</section>
+<section class="slide class" id="rulesHyp">
+  <h2>Computer Applications: Dependent Samples t Tests</h2>
+  <p>Ok, so let&#39;s do this in SPSS. Open SPSS and either type in the data or load the data. </p>
+
+<p><img src="spss_dep_1.png" alt="width"> </p>
+
+<p>and </p>
+
+<p><img src="spss_dep_2.png" alt="width"></p>
+
+<p>Rosie, assures you that you must remain calm because SPSS only gives us the two tailed hypothesis :(. The answer is to split the value in half. Whew, that&#39;s a relief! So, let&#39;s do this again. When we split the value, we get \(sig=.038\) Wow! That was cool. Because in the end...we STILL can reject \(H_0\). Citing our decision rules of course:  Reject \(H_0\) if \(|t.sample.probability| > critical.value\). So, we have \(Sig=.038\) which is still greater than .025. Rosie is taking this to the marketing department...time to proceed with the commercial!</p>
+
+</section>
+<section class="slide class" id="SPSStdep">
+  <h2>Statistical Significance versus Research Significance</h2>
+  <h3>Research Significance</h3>
+
+<p>Research Significance [PAGE 306]: Relevance, importance of a particular difference of means or other findings.</p>
+
+<h3>Statistical Significance</h3>
+
+<p>Statistical Significance [PAGE 306]: The high probability that the difference between the two means or other finding based on a random sample is not the result of sampling error but reflects the characteristics of the population from which the sample was drawn.</p>
+
+<p>I have placed a pdf on the course website for you to read about significant and not significant by A. Gelman and H. Stern. In addition, you&#39;ll find a pdf for Statistical Errors in medical research. </p>
+
+<p>The warning here is that: you must know your test and what to conclude from the test. Do NOT make grand sweeping judgments here. We are only testing the probability of occurrence. Be cautious with your conclusions. It&#39;s like salt. Too much and you ruin a great meal as well as increase your blood pressure!</p>
+
+</section>
+<section class="slide class" id="stats_warning">
+  <h2>Statistical Power</h2>
+  <p>Power, some of us like power in real life. In statistics, we are interested in the power of the test. We want the likelihood that our test will reject the null hypothesis when in fact, \(H_1\) is actually TRUE.</p>
+
+<h3>Statements about the Population and Conclusion</h3>
+
+<h4>Null is true in the population</h4>
+
+<ul>
+<li>Conclusion that \(H_0\) is True: No Error \(p=1-\alpha\)</li>
+<li>Conclusion that \(H_0\) is True: TYPE I ERROR: \(p=\alpha\)</li>
+</ul>
+
+<h4>Alternative is true in the population</h4>
+
+<ul>
+<li>Conclusion that \(H_1\) is True: TYPE II ERROR: \(p=\beta\)<br></li>
+<li>Conclusion that \(H_1\) is TRUE: No ERROR: \(p=1-\beta\)</li>
+</ul>
+
+</section>
+<section class="slide class" id="power">
+  <h2>Special Effects: Not just in movies...we have them in statistics</h2>
+  <p>In social sciences we look at larger mean differences as statistically significant a majority of the time in social research. Larger sample size are key here! If you have a large enough sample size the problems you encounter with statistical power and effect size are DIMINISHED.</p>
+
+<p>The text book recommends that power: (\(1-\beta=.80\)) at a minimum. These concerns are field dependent. Not all fields use the same level of power. Your field will have it&#39;s own requirements for power.</p>
+
+<ul>
+<li>Small Effects [PAGE 308]
+
+<ul>
+<li>Hypothesized \(.2\sigma\) difference between \(\mu\) for the experimental group and \(\mu\) for the control groups.</li>
+</ul></li>
+<li>Medium Effects [PAGE 307]
+
+<ul>
+<li>HYPOTHESIZED \(.5\sigma\) difference between the population means.</li>
+</ul></li>
+<li>Large Effects [PAGE 307]
+
+<ul>
+<li>A \(.8\sigma\) population mean difference.</li>
+<li>Only the LARGER MEAN DIFFERENCES are found to be statistically significant for a majority of the time in social sciences.</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="powereffects">
+  <h2>Conclusions/RECAP</h2>
+  <p>The t test is an older test. We use it to look at means. Next time we meet, we will look at how to compare larger number of sample means and a special technique known as the Analysis of Variance, ANOVA. Remember that you will still need to make some decisions about the research, problem, or assignment. Use the decision rules and stick to the methods outlined in the textbook, lecture, and statistically rooted journals. </p>
 
 </section>
 <section class="slide class" id="chapters">
@@ -899,9 +1408,18 @@
 </section>
 <section class="slide class" id="concepts5">
   <h2>Equations for this Chapter</h2>
-  <h3>Independently Drawn Samples</h3>
+  <h3>Variance Estimate: Sigma Hat Squared Equation</h3>
 
-<p><strong>F Test for Homogeneity of Variables</strong></p>
+<p>\(\hat{\sigma}^2=\frac{\Sigma(x-\bar{x})^2}{n-1}\)</p>
+
+<h3>Standard Deviation Estimate: Sigma Hat Equation</h3>
+
+<p>\(\hat{\sigma}=\sqrt{\frac{\Sigma(x-\bar{x})^2}{n-1}}\)</p>
+
+</section>
+<section class="slide class" id="eq">
+  <h3>Independently Drawn Samples</h3>
+  <p><strong>F Test for Homogeneity of Variables</strong></p>
 
 <p>\(F = \frac{s^2_{larger}}{s^2_{smaller}}\)</p>
 
@@ -957,7 +1475,7 @@
 <li>\(df\) Exact:</li>
 </ul>
 
-<p>\(df_{exact}=\frac{\bigg( \frac{\sigma^2_1}{n_1} + \frac{\sigma^2_2}{n_1}  \bigg)^2}{\Bigg[\frac{\bigg( \frac{\sigma^2_1}{n_1}\bigg)^2}{n_1-1} \Bigg] + \Bigg[ \frac{\bigg( \frac{\sigma^2_2}{n_2}\bigg)^2}{n_2-1}\Bigg]}\)</p>
+<p>\(df_{exact}=\frac{\bigg( \frac{\hat{\sigma}^2_1}{n_1} + \frac{\hat{\sigma}^2_2}{n_1}  \bigg)^2}{\Bigg[\frac{\bigg( \frac{\hat{\sigma}^2_1}{n_1}\bigg)^2}{n_1-1} \Bigg] + \Bigg[ \frac{\bigg( \frac{\hat{\sigma}^2_2}{n_2}\bigg)^2}{n_2-1}\Bigg]}\)</p>
 
 </section>
 <section class="slide class" id="eq5">
@@ -972,11 +1490,16 @@
 
 <p>and \(df=n_p -1\)</p>
 
+<ul>
+<li>\(S_D\) is the sample standard deviation of the difference scores
+\(S_D=\sqrt{\frac{\Sigma(D-\bar{D})^2}{n_p}}\)</li>
+</ul>
+
 </section>
 <section class="slide class" id="eq6">
   <h2>Next Time</h2>
   <ol>
-<li>Don&#39;t forget that Homework 2 is due</li>
+<li>Don&#39;t forget that Homework 2 is due Friday</li>
 <li>Chapter 10 (introduction to 10)</li>
 <li>Examples of z scores are on the class website</li>
 <li>Examples of t will be on the class website</li>
@@ -984,7 +1507,7 @@
 <li>Winners will be announced on Wednesday</li>
 <li>Wed. we will be doing a mock research project from start to finish</li>
 <li>Homework 3 will be coming up (11/03)</li>
-<li>Exam 1 (10/22)</li>
+<li>Exam 1 (10/29)</li>
 <li>Writing Draft (10/29)</li>
 </ol>
 
